@@ -1356,6 +1356,7 @@ version = "0.1.6"
 dependencies = [
  "clap",
  "etcetera",
+ "serde_json",
  "simple-completion-language-server",
  "tokio",
  "url",

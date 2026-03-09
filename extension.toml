@@ -2,9 +2,9 @@ id = "unicode"
 name = "Unicode"
 version = "0.1.5"
 schema_version = 1
-authors = ["Gabrielle Guimarães de Oliveira <gabrielle1guim@gmail.com>"]
-description = "Unicode characters for Zed"
-repository = "https://github.com/aripiprazole/unicode"
+authors = ["Gabrielle Guimarães de Oliveira <gabrielle1guim@gmail.com>", "Ciarán Dunne"]
+description = "Unicode character input for Zed via LaTeX-style completions"
+repository = "https://github.com/ciaran-matthew-dunne/zed-unicode"
 
 [language_servers.unicode]
 name = "unicode"
@@ -41,6 +41,9 @@ languages = [
   "JSONC",
   "Julia",
   "Kotlin",
+  "Lambdapi",
+  "LaTeX",
+  "Lean",
   "Lua",
   "Markdown",
   "Nim",

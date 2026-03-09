@@ -116,7 +116,7 @@ impl UnicodeExtension {
         }
 
         let binary_path =
-            self.download(language_server_id, "unicode-ls", "aripiprazole/zed-unicode")?;
+            self.download(language_server_id, "unicode-ls", "ciaran-matthew-dunne/zed-unicode")?;
 
         self.cached_ls_binary_path = Some(binary_path.clone());
 
