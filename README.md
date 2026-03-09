@@ -47,16 +47,16 @@ The default set (~220 symbols) covers:
 - **Misc** &mdash; `infty`, `partial`, `nabla`, `sum`, `prod`, `int`, `ldots`, `ell`, `aleph`, ...
 - **Delimiters** &mdash; `langle`, `rangle`, `lceil`, `rceil`, `lfloor`, `rfloor`, `llbracket`, `rrbracket`
 
-### Full unicode-math mode
+### Additional LaTeX aliases
 
-To enable all 2,400+ symbols from the unicode-math table plus additional aliases from [unicode-latex](https://github.com/ViktorQvarfordt/unicode-latex), add to your Zed `settings.json`:
+To also load aliases from [unicode-latex](https://github.com/ViktorQvarfordt/unicode-latex) (traditional backslash-less LaTeX command names beyond what's already covered), add to your Zed `settings.json`:
 
 ```json
 {
   "lsp": {
     "unicode": {
       "settings": {
-        "include_all_symbols": true
+        "include_latex_aliases": true
       }
     }
   }

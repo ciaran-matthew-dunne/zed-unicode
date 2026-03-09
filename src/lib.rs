@@ -140,16 +140,16 @@ impl zed::Extension for UnicodeExtension {
         let settings = LspSettings::for_worktree("unicode", worktree)
             .map(|lsp_settings| lsp_settings.settings)
             .unwrap_or_default()
-            .unwrap_or(serde_json::json!({
-                "include_all_symbols": false
-            }));
+            .unwrap_or(serde_json::json!({}));
 
-        let args = settings
-            .get("include_all_symbols")
+        let mut args = Vec::new();
+        if settings
+            .get("include_latex_aliases")
             .and_then(|x| x.as_bool())
-            .filter(|x| *x)
-            .map(|_| vec!["--include_all_symbols".into()])
-            .unwrap_or_default();
+            .unwrap_or(false)
+        {
+            args.push("--include_latex_aliases".into());
+        }
 
         Ok(Command {
             args,
