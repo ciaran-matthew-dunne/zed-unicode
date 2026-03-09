@@ -2,42 +2,54 @@
 
 A Zed extension for typing Unicode symbols using LaTeX-style prefixes. Type `lambda` and get `λ`, type `->` and get `→`, type `forall` and get `∀`.
 
-Forked from [aripiprazole/zed-unicode](https://github.com/aripiprazole/zed-unicode) with rewritten symbol mappings, LaTeX-convention prefixes, and support for proof assistants.
+Forked from [aripiprazole/zed-unicode](https://github.com/aripiprazole/zed-unicode) with rewritten symbol mappings based on the [unicode-math](https://ctan.org/pkg/unicode-math) LaTeX package.
 
 ## Usage
 
 Install the extension, then start typing a symbol name in any supported file. Completions appear automatically in Zed's completion menu.
 
-| You type | You get |
-|----------|---------|
-| `alpha`  | α       |
-| `lambda` | λ       |
-| `->`     | →       |
-| `forall` | ∀       |
-| `vdash`  | ⊢       |
-| `:=`     | ≔       |
-| `bbN`    | ℕ       |
-| `_0`     | ₀       |
-| `^-1`    | ⁻¹      |
+| You type | You get | Name source |
+|----------|---------|-------------|
+| `rightarrow` | → | unicode-math |
+| `->` | → | alias |
+| `forall` | ∀ | unicode-math |
+| `lambda` | λ | alias (traditional LaTeX) |
+| `muplambda` | λ | unicode-math (canonical) |
+| `vdash` | ⊢ | unicode-math |
+| `\|-` | ⊢ | alias |
+| `coloneq` | ≔ | unicode-math |
+| `:=` | ≔ | alias |
+| `BbbN` | ℕ | unicode-math |
+| `bbN` | ℕ | alias |
+
+## Symbol naming
+
+Symbol names follow the [unicode-math](https://github.com/latex3/unicode-math) package conventions. These are the canonical names from `unicode-math-table.tex`, the standard symbol table for XeLaTeX/LuaLaTeX mathematical typesetting.
+
+Common alternative names are provided as **aliases**:
+
+- **Traditional LaTeX** &mdash; `alpha`, `lambda`, `Gamma` (aliases for unicode-math's `mupalpha`, `muplambda`, `mupGamma`)
+- **ASCII shorthands** &mdash; `->`, `=>`, `|->`, `|-`, `|=`, `:=`, `<=`, `>=`
+- **Synonyms** &mdash; `land`/`lor` (for `wedge`/`vee`), `lnot` (for `neg`), `emptyset` (for `varnothing`)
 
 ## Symbols
 
-The default set (~170 symbols) covers:
+The default set (~220 symbols) covers:
 
-- **Greek letters** &mdash; `alpha` .. `omega`, `Gamma` .. `Omega`, variants (`varepsilon`, `varphi`, ...)
-- **Arrows** &mdash; `->`, `<-`, `=>`, `<=>`, `|->`, `hookrightarrow`, `->>`, ...
-- **Logic & proof** &mdash; `forall`, `exists`, `neg`, `land`, `lor`, `top`, `bot`, `vdash`, `turnstile`, ...
-- **Relations** &mdash; `equiv`, `neq`, `leq`, `geq`, `approx`, `sim`, `cong`, `prec`, `succ`, ...
-- **Set theory** &mdash; `in`, `notin`, `subset`, `cup`, `cap`, `emptyset`, ...
-- **Operators** &mdash; `times`, `cdot`, `oplus`, `otimes`, `pm`, `circ`, ...
-- **Blackboard bold** &mdash; `bbN`, `bbZ`, `bbQ`, `bbR`, `bbC`, `bbP`, `bbH`, `bbB`
+- **Greek letters** &mdash; all lowercase and uppercase, plus variants
+- **Arrows** &mdash; `rightarrow`, `Rightarrow`, `hookrightarrow`, `mapsto`, `twoheadrightarrow`, ...
+- **Logic & proof** &mdash; `forall`, `exists`, `neg`, `wedge`, `vee`, `top`, `bot`, `vdash`, `vDash`, ...
+- **Relations** &mdash; `equiv`, `neq`, `leq`, `geq`, `approx`, `sim`, `cong`, `prec`, `succ`, `coloneq`, ...
+- **Set theory** &mdash; `in`, `notin`, `subset`, `cup`, `cap`, `varnothing`, ...
+- **Operators** &mdash; `times`, `cdotp`, `oplus`, `otimes`, `pm`, `circ`, ...
+- **Blackboard bold** &mdash; `BbbN`, `BbbZ`, `BbbQ`, `BbbR`, `BbbC`, ...
 - **Sub/superscripts** &mdash; `_0` .. `_9`, `^0` .. `^9`, `^-1`, `_n`, `^n`, ...
 - **Misc** &mdash; `infty`, `partial`, `nabla`, `sum`, `prod`, `int`, `ldots`, `ell`, `aleph`, ...
 - **Delimiters** &mdash; `langle`, `rangle`, `lceil`, `rceil`, `lfloor`, `rfloor`, `llbracket`, `rrbracket`
 
-### Full Unicode mode
+### Full unicode-math mode
 
-To enable all 2,500+ symbols from [unicode-latex](https://github.com/ViktorQvarfordt/unicode-latex) (covering nearly all of LaTeX's math symbol commands), add to your Zed `settings.json`:
+To enable all 2,400+ symbols from the unicode-math table plus additional aliases from [unicode-latex](https://github.com/ViktorQvarfordt/unicode-latex), add to your Zed `settings.json`:
 
 ```json
 {
